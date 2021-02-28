@@ -1,0 +1,81 @@
+// LIBRARIES
+
+@import 'lib/helpers';
+@import 'lib/normalize';
+@import 'lib/range';
+@import 'lib/wp';
+
+// RANGES
+
+$theme-ranges: (
+	// Default (Bootstrap)
+	xs:  (min:  575),
+	sm:  (min:  576),
+	md:  (min:  768),
+	lg:  (min:  992),
+	xl:  (min: 1200),
+	// Add new ranges here.
+);
+
+$ranges: map-merge($ranges, $theme-ranges);
+
+// COLORS
+
+// FONTS
+
+$primary-font: sans-serif;
+
+// LAYERS
+
+// CONTAINERS
+
+html,
+body {
+	font: 16px/1.5 $primary-font;
+}
+
+body {
+}
+
+.site-container {
+}
+
+* {
+	box-sizing: border-box;
+}
+
+p {
+	margin: 1em 0;
+}
+
+a {
+}
+
+h1 {
+}
+
+h2 {
+}
+
+h3 {
+}
+
+h4 {
+}
+
+h5 {}
+h6 {}
+
+em {
+}
+
+hr {
+}
+
+ul, ol {}
+
+li {}
+
+img {
+	height: auto;
+}

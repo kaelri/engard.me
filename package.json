@@ -1,0 +1,17 @@
+{
+	"name": "kaelri.com",
+	"version": "1.0.0",
+	"author": "kaelri",
+	"description": "Custom WordPress theme & plugin for [Kaelri.com](https://www.kaelri.com).",
+	"devDependencies": {
+		"laravel-mix": "^6.0.13",
+		"sass": "^1.32.8",
+		"sass-loader": "^10.1.1"
+	},
+	"license": "All rights reserved.",
+	"private": true,
+	"scripts": {
+		"build": "npx mix",
+		"watch": "npx mix watch"
+	}
+}
