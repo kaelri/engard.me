@@ -106,7 +106,7 @@ class Portal {
 
 	public static function enable_spinner( bool $do_html = true, bool $do_css = true  ) {
 
-		if ( self::$do_spinner ) return;
+		if ( empty( self::$path ) || self::$do_spinner ) return;
 
 		self::$do_spinner = true;
 
