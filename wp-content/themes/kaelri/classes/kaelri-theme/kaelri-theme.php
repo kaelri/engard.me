@@ -48,7 +48,8 @@ class kaelriTheme {
 	public static function register_menus() {
 
 		register_nav_menus([
-			'main' => 'Main Menu',
+			'main'    => 'Main Menu',
+			'contact' => 'Contact',
 		]);
 
 	}
@@ -58,7 +59,7 @@ class kaelriTheme {
 
 	public static function load_fonts() {
 
-		// wp_enqueue_style( 'google-fonts', '', [], null );
+		wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap', [], null );
 
 	}
 

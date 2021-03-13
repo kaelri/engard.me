@@ -1,8 +1,8 @@
+			<footer class="site-footer">
+
+			</footer>
+
 		</div><!-- .main-container -->
-
-		<footer class="site-footer">
-
-		</footer>
 
 		<?php wp_footer(); ?>
 

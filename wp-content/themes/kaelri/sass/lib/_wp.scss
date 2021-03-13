@@ -66,7 +66,7 @@ Based on https://codex.wordpress.org/CSS
 
 $wp-ranges: (
     wp-sm: (max: 600),
-    wp-md: (min: 601, max: 783),
+    wp-md: (min: 601),
     wp-lg: (min: 784)
 );
 $ranges: map-merge($ranges, $wp-ranges);
