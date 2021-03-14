@@ -4,7 +4,7 @@
 	<header class="entry-header">
 
 		<!-- TITLE -->
-		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<h1 class="entry-title"><a href="<?=get_the_permalink()?>"><?php the_title(); ?></a></h1>
 
 		<!-- META -->
 		<section class="entry-meta">

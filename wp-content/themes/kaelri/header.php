@@ -23,16 +23,19 @@
 
 	<div class="site-container">
 
-		<div class="site-header-container">
+		<div class="header-container">
 
-			<header class="site-header">
+			<header class="header">
 
-				<h1 class="site-title">
+				<h1 class="header-title">
 					<a href="<?=esc_url( home_url( '/' ) )?>" title="<?=esc_attr( get_bloginfo( 'name' ))?>" rel="home"><?=esc_html( get_bloginfo( 'name' ) )?></a>
 				</h1>
 
-				<nav class="site-contact">
-					<?php wp_nav_menu( array( 'theme_location' => 'contact', 'walker' => new kaelriContactMenu ) ); ?>
+				<nav class="header-contact">
+					<?php wp_nav_menu([
+						'theme_location' => 'contact',
+						'walker'         => new kaelriContactMenu
+					]); ?>
 				</nav>
 
 			</header>

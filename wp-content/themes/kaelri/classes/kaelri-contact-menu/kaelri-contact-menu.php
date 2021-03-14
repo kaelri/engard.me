@@ -21,7 +21,7 @@ class kaelriContactMenu extends Walker_Nav_Menu {
 		$icon        = '';
 		$icon_map    = [
 			'about'     => 'fas fa-user',
-			'email'     => 'fas fa-envelope',
+			'email'     => 'far fa-envelope',
 			'twitter'   => 'fab fa-twitter',
 			'tumblr'    => 'fab fa-tumblr',
 			'github'    => 'fab fa-github',
