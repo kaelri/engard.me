@@ -1,5 +1,5 @@
-			<footer class="site-footer">
-
+			<footer class="footer">
+				&copy;&nbsp;<?=date('Y')?>
 			</footer>
 
 		</div><!-- .main-container -->

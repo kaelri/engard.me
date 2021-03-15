@@ -65,15 +65,13 @@ Based on https://codex.wordpress.org/CSS
 // Extension of the 'range' module to handle the WordPress admin bar.
 
 $wp-ranges: (
-    wp-sm: (max: 600),
-    wp-md: (min: 601),
-    wp-lg: (min: 784)
+    wp-mobile:  (max: 782),
+    wp-desktop: (min: 783)
 );
 $ranges: map-merge($ranges, $wp-ranges);
 
-$wpadminbar-sm-height:  46px;
-$wpadminbar-md-height:  46px;
-$wpadminbar-lg-height:  32px;
+$wpadminbar-mobile-height:  46px;
+$wpadminbar-desktop-height: 32px;
 
 // Use WP ranges and variables to make adjustments for fixed/absolute elements, e.g.
 // body.admin-bar { @include range(wp-sm) { #site-header { top: $wpadminbar-sm-height; } } }

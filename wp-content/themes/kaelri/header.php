@@ -31,11 +31,19 @@
 					<a href="<?=esc_url( home_url( '/' ) )?>" title="<?=esc_attr( get_bloginfo( 'name' ))?>" rel="home"><?=esc_html( get_bloginfo( 'name' ) )?></a>
 				</h1>
 
+				<div class="header-description">
+					<?php bloginfo( 'description' ); ?>
+				</div>
+
 				<nav class="header-contact">
 					<?php wp_nav_menu([
 						'theme_location' => 'contact',
 						'walker'         => new kaelriContactMenu
 					]); ?>
+				</nav>
+
+				<nav class="header-menu">
+					<?php wp_nav_menu( [ 'theme_location' => 'main' ] ); ?>
 				</nav>
 
 			</header>

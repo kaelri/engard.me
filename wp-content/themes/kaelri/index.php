@@ -2,13 +2,25 @@
 
 <main class="main">
 
+	<?php if ( is_search() ) { ?>
+	<header class="archive-header">
+
+		<h1 class="archive-title"><i class="fas fa-search"></i>&nbsp;“<?=get_search_query()?>”</h1>
+
+	</header>
+	<?php } ?>
+
 	<section class="archive">
 	<?php if ( have_posts() ) { while ( have_posts() ) { the_post(); ?>
 
 		<!-- ENTRY -->
 		<?php get_template_part( 'entry', get_post_type() ); ?>
 
-	<?php }} ?>
+	<?php }} else { ?>
+
+		<p>No results.</p>
+
+	<?php } ?>
 	</section>
 
 	<!-- PAGINATION -->

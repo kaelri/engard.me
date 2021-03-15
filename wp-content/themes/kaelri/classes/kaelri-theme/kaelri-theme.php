@@ -43,12 +43,14 @@ class kaelriTheme {
 
 		add_theme_support( 'post-thumbnails' );
 
+		add_theme_support( 'post-formats', ['image'] );
+
 	}
 
 	public static function register_menus() {
 
 		register_nav_menus([
-			'main'    => 'Main Menu',
+			'main'    => 'Main',
 			'contact' => 'Contact',
 		]);
 
@@ -102,7 +104,7 @@ class kaelriTheme {
 			$title = $term->name;
 		}
 
-		return $title . $sep . $site_name;
+		return $title . $site_name;
 
 	}
 
