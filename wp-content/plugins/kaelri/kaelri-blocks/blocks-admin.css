@@ -1,8 +1,7 @@
-.block-callout {
+.block-preview-placeholder {
+	margin: 1em 0;
 	padding: 1em;
-	border: 1px solid #999;
+	border: 1px solid #adb2ad;
+	color: #666;
 	background: #eee;
-}
-
-.block-callout-inner {
 }

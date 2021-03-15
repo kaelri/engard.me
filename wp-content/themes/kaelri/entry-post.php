@@ -8,8 +8,16 @@
 		<h1 class="entry-title"><a href="<?=get_the_permalink()?>"><?php the_title(); ?></a></h1>
 
 		<!-- META -->
-		<?php get_template_part( 'meta', get_post_type() ); ?>
-		
+		<section class="entry-meta">
+
+			<!-- DATE -->
+			<time class="entry-date" pubdate><?php the_time( get_option( 'date_format' ) ); ?></time>
+
+			<!-- TAGS -->
+			<?php if ( has_tag() ) { ?><span class="entry-tags"><?php the_tags(); ?></span><?php } ?>
+
+		</section>
+
 	</header>
 	<?php } ?>
 

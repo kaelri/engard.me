@@ -1,5 +1,13 @@
-jQuery('.post_format-post-format-image').each(function(){
+jQuery('.post_format-post-format-image, .type-project').each(function(){
+
 	var id = jQuery(this).attr('id');
-	var caption = jQuery(this).find('figcaption').html();
-	jQuery(this).find('.wp-block-image > a').attr( 'data-lightbox', id ).attr('data-title', caption);
+
+	jQuery(this).find('.wp-block-image').each(function(){
+
+		var caption = jQuery(this).find('figcaption').html();
+
+		jQuery(this).find('a').attr( 'data-lightbox', id ).attr( 'data-title', caption );
+		
+	});
+
 });

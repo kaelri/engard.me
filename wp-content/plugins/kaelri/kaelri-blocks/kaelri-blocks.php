@@ -49,40 +49,4 @@ class kaelriBlocks {
 
 	}
 
-	public static function register_blocks() {
-
-		acf_register_block_type([
-			'name'              => 'kaelri-callout',
-			'title'             => 'Callout',
-			'description'       => 'A box that contains other content.',
-			'render_callback'   => [ __CLASS__, 'render_callout' ],
-			'category'          => 'kaelri',
-			'icon'              => 'images-alt2',
-			'keywords'          => ['custom'],
-			'supports'          => [
-                'align' => true,
-                'mode'  => false,
-                'jsx'   => true
-			],
-		]);
-
-	}
-
-	// RENDERERS
-	// ---------
-
-	public static function render_callout( $block ) {
-
-		?><section class="block-callout">
-
-			<div class="block-callout-inner">
-
-				<InnerBlocks />
-
-			</div>
-
-		</section><?php
-
-	}
-
 }
