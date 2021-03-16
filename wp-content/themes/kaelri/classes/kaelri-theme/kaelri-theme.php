@@ -13,18 +13,22 @@ class kaelriTheme {
 		self::$url  = plugin_dir_url  ( __FILE__ );
 
 		// THEME CAPABILITIES
-		add_action( 'after_setup_theme',  [ __CLASS__, 'add_theme_supports'           ]     );
-		add_action( 'after_setup_theme',  [ __CLASS__, 'register_menus'               ]     );
+		add_action( 'after_setup_theme',     [ __CLASS__, 'add_theme_supports'          ]     );
+		add_action( 'after_setup_theme',     [ __CLASS__, 'register_menus'              ]     );
 
 		// CSS & JS
-		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'load_fonts'                   ]     );
-		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'load_main_css'                ]     );
-		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'load_main_js'                 ]     );
+		add_action( 'wp_enqueue_scripts',    [ __CLASS__, 'load_fonts'                  ]     );
+		add_action( 'wp_enqueue_scripts',    [ __CLASS__, 'load_main_css'               ]     );
+		add_action( 'wp_enqueue_scripts',    [ __CLASS__, 'load_main_js'                ]     );
 
 		// CONTENT CUSTOMIZATION & FILTERS
-		add_filter( 'body_class',         [ __CLASS__, 'filter_body_classes'          ]     );
-		add_filter( 'wp_title',           [ __CLASS__, 'filter_wp_title'              ], 20 );
-		add_filter( 'the_title',          [ __CLASS__, 'filter_the_title'             ]     );
+		add_filter( 'body_class',            [ __CLASS__, 'filter_body_classes'         ]     );
+		add_filter( 'wp_title',              [ __CLASS__, 'filter_wp_title'             ], 20 );
+		add_filter( 'the_title',             [ __CLASS__, 'filter_the_title'            ]     );
+		add_filter( 'excerpt_length',        [ __CLASS__, 'filter_excerpt_length'       ]     );
+		add_filter( 'excerpt_more',          [ __CLASS__, 'filter_excerpt_readmore'     ]     );
+		add_filter( 'the_content_more_link', [ __CLASS__, 'filter_content_readmore'     ]     );
+		add_filter( 'pre_get_posts',         [ __CLASS__, 'add_projects_to_tag_archive' ]     );
 
 		// Show Portal plugin’s loading spinner.
 		if ( class_exists('Portal') ) Portal::enable_spinner();
@@ -114,6 +118,95 @@ class kaelriTheme {
 		} else {
 			return $title;
 		}
+	}
+	
+	public static function filter_excerpt_length( $length ) {
+		return 20;
+	}
+
+	public static function filter_excerpt_readmore( $more ) {
+		return '…';
+	}
+
+	public static function filter_content_readmore( $more ) {
+
+		return sprintf( '<p class="archive-read-more"><a href="%s">Read more&nbsp;&rarr;</a></p>', get_the_permalink() );
+
+	}
+
+	public static function add_projects_to_tag_archive( $query ) {
+
+		if ( !is_tag() || !empty( $query->query_vars['suppress_filters'] ) ) return $query;
+		 
+		$query->set( 'post_type', [ 'post', 'project' ] );
+
+		return $query;
+
+	}
+
+	public static function get_archive_title() {
+
+		if ( is_tag() || is_category() ) {
+			
+			$tag  = get_queried_object();
+			$icon = self::get_tag_icon($tag);
+			$name = single_tag_title('', false);
+
+			return sprintf( '%s&nbsp;%s', $icon, $name );
+
+		}
+
+		if ( is_search() ) {
+			$search = get_search_query();
+			return sprintf( '<i class="fas fa-search"></i>&nbsp;“%s”', $search );
+		}
+
+		if ( is_day() ) {
+			$day =  get_the_time( get_option( 'date_format' ) );
+			return sprintf( '<i class="fas fa-calendar"></i>&nbsp;%s', $day );
+		}
+		
+		if ( is_month() ) {
+			$month = get_the_time( 'F Y' );
+			return sprintf( '<i class="fas fa-calendar"></i>&nbsp;%s', $month );
+		}
+		
+		if ( is_year() ) {
+			$year = get_the_time( 'Y' );
+			return sprintf( '<i class="fas fa-calendar"></i>&nbsp;%s', $year );
+		}
+
+		if ( is_author() ) {
+			return get_the_author_link();
+		}
+
+		if ( is_404() ) {
+			return '<i class="fas fa-times"></i>&nbsp;404';
+		}
+
+		if ( is_post_type_archive() ) {
+			$post_type = get_queried_object();
+			return $post_type->label;
+		}
+		
+		return 'Archive'; // default
+
+	}
+
+	public static function get_tag_icon( $tag ) {
+
+		$map = [
+			'code'    => 'fas fa-fw fa-code-branch',
+			'design'  => 'fas fa-fw fa-paint-brush',
+			'photos'  => 'fas fa-fw fa-camera',
+			'likes'   => 'fas fa-fw fa-heart',
+			'writing' => 'fas fa-fw fa-pen-fancy',
+		];
+
+		$icon = $map[ $tag->slug ] ?? 'fas fa-fw fa-tag';
+
+		return sprintf( '<i class="%s"></i>', $icon );
+
 	}
 
 }

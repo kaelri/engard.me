@@ -15,7 +15,7 @@
 			<time class="entry-date" pubdate><a href="<?=get_the_permalink()?>"><?php the_time( get_option( 'date_format' ) ); ?></a></time>
 
 			<!-- TAGS -->
-			<?php if ( has_tag() ) { ?><span class="entry-tags"><?php the_tags(); ?></span><?php } ?>
+			<?php get_template_part( 'meta', 'tags' ); ?>
 
 		</section>
 

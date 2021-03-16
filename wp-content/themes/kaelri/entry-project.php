@@ -8,22 +8,28 @@
 		<h1 class="entry-title"><a href="<?=get_the_permalink()?>"><?php the_title(); ?></a></h1>
 
 		<!-- META -->
-		<?php $subtitle = get_field('post_subtitle'); if ( !empty($subtitle) ) { ?>
-		<section class="entry-meta"><?=$subtitle?></section>
-		<?php } ?>
-		
-	</header>
-	<?php } ?>
+		<section class="entry-meta">
 
-	<?php if ( get_post_format() == 'image' ) { ?>
-	<header class="entry-header-min">
-		<a href="<?=get_the_permalink()?>"><time class="entry-date" pubdate><?php the_time( get_option( 'date_format' ) ); ?></time></a>
+			<!-- SUBTITLE -->
+			<span class="entry-subtitle"><?=get_field('post_subtitle')?></span>
+
+			<!-- TAGS -->
+			<?php get_template_part( 'meta', 'tags' ); ?>
+
+		</section>
+		
 	</header>
 	<?php } ?>
 
 	<!-- BODY -->
 	<section class="entry-content">
+
+		<?php get_template_part( 'entry', 'image' ); ?>
+
+		<?php get_template_part( 'project', 'links' ); ?>
+
 		<?php the_content(); ?>
+
 	</section>
 
 </article>

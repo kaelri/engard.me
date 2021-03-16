@@ -14,8 +14,7 @@ class kaelriProject {
 		self::$path = plugin_dir_path ( __FILE__ );
 		self::$url  = plugin_dir_url  ( __FILE__ );
 
-		add_action( 'init',     [ __CLASS__, 'register_post_type' ], 0 );
-		add_action( 'acf/init', [ __CLASS__, 'register_blocks'    ]    );
+		add_action( 'init', [ __CLASS__, 'register_post_type' ], 0 );
 
 	}
 
@@ -24,7 +23,7 @@ class kaelriProject {
 		register_post_type( 'project', [
 			'supports'            => [ 'title', 'editor', 'thumbnail' ],
 			'show_in_rest'        => true,
-			'taxonomies'          => [],
+			'taxonomies'          => ['post_tag'],
 			'hierarchical'        => false,
 			'public'              => true,
 			'show_ui'             => true,
@@ -34,10 +33,11 @@ class kaelriProject {
 			'menu_position'       => 20,
 			'menu_icon'           => 'dashicons-format-image',
 			'can_export'          => true,
-			'has_archive'         => false,
+			'has_archive'         => true,
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'capability_type'     => 'post',
+			'rewrite'             => ['slug' => 'projects'],
 			'labels'              => [
 				'name'                => 'Projects',
 				'singular_name'       => 'Project',
@@ -55,167 +55,6 @@ class kaelriProject {
 			],
 		]);
 
-		register_taxonomy( 'project_category', ['project'], [
-			'hierarchical'               => true,
-			'public'                     => true,
-			'show_ui'                    => true,
-			'show_admin_column'          => true,
-			'show_in_nav_menus'          => true,
-			'show_tagcloud'              => true,
-			'show_in_rest'               => true,
-			'rewrite'                    => ['slug' => 'project-category'],
-			'labels'                     => [
-				'name'                       => 'Project Categories',
-				'singular_name'              => 'Project Category',
-				'menu_name'                  => 'Categories',
-				'all_items'                  => 'All Categories',
-				'parent_item'                => 'Parent Category',
-				'parent_item_colon'          => 'Parent Category:',
-				'new_item_name'              => 'New Category',
-				'add_new_item'               => 'Add New Category',
-				'edit_item'                  => 'Edit Category',
-				'update_item'                => 'Update Category',
-				'separate_items_with_commas' => 'Separate Categories with Commas',
-				'search_items'               => 'Search Categories',
-				'add_or_remove_items'        => 'Add or Remove Categories',
-				'choose_from_most_used'      => 'Choose from the most used Categories',
-			],
-		]);
-
-	}
-
-	public static function register_blocks() {
-
-		acf_register_block_type([
-			'name'            => 'portfolio',
-			'title'           => 'Portfolio',
-			'description'     => 'List all projects by category.',
-			'render_callback' => [ __CLASS__, 'render_block_portfolio' ],
-			'icon'            => 'images-alt2',
-			'category'        => 'kaelri',
-			'keywords'        => [ 'custom' ],
-		]);
-
-		acf_register_block_type([
-			'name'            => 'project-links',
-			'title'           => 'Project Links',
-			'description'     => 'Display project links.',
-			'render_callback' => [ __CLASS__, 'render_block_project_links' ],
-			'icon'            => 'images-alt2',
-			'category'        => 'kaelri',
-			'keywords'        => [ 'custom' ],
-		]);
-
-	}
-
-	public static function render_block_portfolio( $block ) {
-
-		// ADMIN
-		if ( is_admin() ) {
-			?><p class="block-preview-placeholder">Portfolio</p><?php
-			return;
-		}
-
-		$project_posts = get_posts([
-			'posts_per_page' => -1,
-			'post_type'      => 'project',
-			'post_status'    => 'publish',
-		]);
-
-		if ( count($project_posts) == 0 ) return;
-
-		?><section class="portfolio">
-
-			<ul>
-			<?php foreach ( $project_posts as $project_post ) {
-
-				$project = new self( $project_post );
-
-				$title     = get_the_title( $project->id );
-				$url       = get_the_permalink( $project->id );
-				$subtitle  = get_field( 'project_subtitle', $project->id );
-				
-				$image_id  = get_post_thumbnail_id( $project->id );
-				$image     = wp_get_attachment_image_src( $image_id, 'medium' );
-				$image_url = $image[0];
-				
-				?><li>
-
-					<a href="<?=$url?>">
-
-						<div class="portfolio-thumb-container">
-							<div class="portfolio-thumb" style="background-image: url(<?=$image_url?>);"></div>
-						</div>
-
-						<div class="portfolio-caption">
-
-							<div class="portfolio-title"><?=$title?></div>
-
-							<?php if ( !empty($caption) ) { ?>
-								<div class="portfolio-subtitle"><?=$subtitle?></div>
-							<?php } ?>
-
-						</div>
-
-					</a>
-
-				</li><?php
-			
-			} ?>
-			</ul>	
-
-		</section><?php
-
-	}
-
-	public static function render_block_project_links( $block ) {
-
-		// ADMIN
-		if ( is_admin() ) {
-			?><p class="block-preview-placeholder">Project Links</p><?php
-			return;
-		}
-
-		if ( !have_rows('project_links', get_post() ) ) return;
-
-		?><section class="project-links">
-
-			<ul class="menu">
-			<?php while ( have_rows('project_links', get_post() ) ) { the_row();
-
-				$link = get_sub_field('url');
-				$icon = get_sub_field('icon');
-
-				$icon_map = [
-					'web'        => 'fas fa-globe',
-					'email'      => 'far fa-envelope',
-					'twitter'    => 'fab fa-twitter',
-					'github'     => 'fab fa-github',
-					'instagram'  => 'fab fa-instagram',
-					'feed'       => 'fab fa-rss',
-					'deviantart' => 'fab fa-deviantart',
-				];
-
-				if ( isset($icon_map[$icon]) ) {
-					$icon_code = $icon_map[$icon]; 
-				}
-
-				?>
-
-				<li class="menu-item <?=$icon?>">
-
-					<a href="<?=$link['url']?>" target="<?=$link['target']?>" title="<?=$link['title']?>">
-						<span class="menu-item-icon"><i class="<?=$icon_code?>"></i></span>
-						<span class="menu-item-title"><?=$link['title']?></span>
-					</a>
-
-				</li>
-
-			<?php } ?>
-			</ul>
-
-		</section><?php
-
 	}
 
 	// INSTANCE
@@ -223,7 +62,7 @@ class kaelriProject {
 
 	public $id;
 	public $post;
-	public $categories = [];
+	public $tags = [];
 
 	function __construct( $source_post = null ) {
 
@@ -240,12 +79,12 @@ class kaelriProject {
 
 	public function fetch_basics() {
 
-		// CATEGORIES
-		$terms = get_the_terms( $this->id, 'project_category' );
+		// TAGS
+		$terms = get_the_terms( $this->id, 'post_tag' );
 
 		if ( !empty($terms) ) { foreach ( $terms as $term ) {
 
-			$this->categories[] = [
+			$this->tags[] = [
 				'id'   => $term->term_id,
 				'name' => $term->name,
 			];

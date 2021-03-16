@@ -27,9 +27,13 @@
 
 			<header class="header">
 
-				<h1 class="header-title">
-					<a href="<?=esc_url( home_url( '/' ) )?>" title="<?=esc_attr( get_bloginfo( 'name' ))?>" rel="home"><?=esc_html( get_bloginfo( 'name' ) )?></a>
-				</h1>
+				<div class="header-avatar">
+
+					<img class="header-photo" src="<?=get_stylesheet_directory_uri()?>/images/photo.png" alt="Author photo">
+
+					<h1 class="header-title"><a href="<?=esc_url( home_url( '/' ) )?>" title="<?=esc_attr( get_bloginfo( 'name' ))?>" rel="home"><?=esc_html( get_bloginfo( 'name' ) )?></a></h1>
+					
+				</div>
 
 				<div class="header-description">
 					<?php bloginfo( 'description' ); ?>

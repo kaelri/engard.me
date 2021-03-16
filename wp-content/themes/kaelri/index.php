@@ -2,10 +2,12 @@
 
 <main class="main">
 
-	<?php if ( is_search() ) { ?>
+	<?php if ( is_search() || is_archive() || is_404() ) { ?>
 	<header class="archive-header">
 
-		<h1 class="archive-title"><i class="fas fa-search"></i>&nbsp;“<?=get_search_query()?>”</h1>
+		<h1 class="archive-title">
+			<?=kaelriTheme::get_archive_title()?>
+		</h1>
 
 	</header>
 	<?php } ?>
@@ -14,11 +16,12 @@
 	<?php if ( have_posts() ) { while ( have_posts() ) { the_post(); ?>
 
 		<!-- ENTRY -->
-		<?php get_template_part( 'entry', get_post_type() ); ?>
+		<?php $template = is_post_type_archive('project') ? 'preview' : 'entry'; ?>
+		<?php get_template_part( $template, get_post_type() ); ?>
 
 	<?php }} else { ?>
 
-		<p>No results.</p>
+		<p>Nothing to see.</p>
 
 	<?php } ?>
 	</section>

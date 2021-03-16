@@ -8,9 +8,15 @@
 		<h1 class="entry-title"><a href="<?=get_the_permalink()?>"><?php the_title(); ?></a></h1>
 
 		<!-- META -->
-		<?php $subtitle = get_field('post_subtitle'); if ( !empty($subtitle) ) { ?>
-		<section class="entry-meta"><?=$subtitle?></section>
-		<?php } ?>
+		<section class="entry-meta">
+
+			<!-- SUBTITLE -->
+			<span class="entry-subtitle"><?=get_field('post_subtitle')?></span>
+
+			<!-- TAGS -->
+			<?php get_template_part( 'meta', 'tags' ); ?>
+
+		</section>
 		
 	</header>
 	<?php } ?>

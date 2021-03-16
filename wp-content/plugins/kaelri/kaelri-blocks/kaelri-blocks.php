@@ -15,7 +15,6 @@ class kaelriBlocks {
 
 		add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'register_block_styles'     ]        );
 		add_filter( 'block_categories',            [ __CLASS__, 'register_block_categories' ], 10, 2 );
-		add_action( 'acf/init',                    [ __CLASS__, 'register_blocks'           ]        );
 
 	}
 
