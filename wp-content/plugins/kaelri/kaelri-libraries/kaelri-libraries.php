@@ -30,6 +30,9 @@ class kaelriLibraries {
 		wp_enqueue_style  ( 'lightbox', self::$url . 'lightbox/css/lightbox.css' );
 		wp_enqueue_script ( 'lightbox', self::$url . 'lightbox/js/lightbox.js', null, null, true );
 
+		wp_enqueue_style  ( 'prism', self::$url . 'prism/prism.css' );
+		wp_enqueue_script ( 'prism', self::$url . 'prism/prism.js', null, null, true );
+
 	}
 
 }

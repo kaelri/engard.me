@@ -96,6 +96,16 @@ class kaelriProject {
 			'keywords'        => [ 'custom' ],
 		]);
 
+		acf_register_block_type([
+			'name'            => 'project-links',
+			'title'           => 'Project Links',
+			'description'     => 'Display project links.',
+			'render_callback' => [ __CLASS__, 'render_block_project_links' ],
+			'icon'            => 'images-alt2',
+			'category'        => 'kaelri',
+			'keywords'        => [ 'custom' ],
+		]);
+
 	}
 
 	public static function render_block_portfolio( $block ) {
@@ -125,8 +135,8 @@ class kaelriProject {
 				$url       = get_the_permalink( $project->id );
 				$subtitle  = get_field( 'project_subtitle', $project->id );
 				
-				$image_id  = get_post_thumbnail_id( $project );
-				$image     = wp_get_attachment_image_src( $image_id, 'large' );
+				$image_id  = get_post_thumbnail_id( $project->id );
+				$image     = wp_get_attachment_image_src( $image_id, 'medium' );
 				$image_url = $image[0];
 				
 				?><li>
@@ -153,6 +163,56 @@ class kaelriProject {
 			
 			} ?>
 			</ul>	
+
+		</section><?php
+
+	}
+
+	public static function render_block_project_links( $block ) {
+
+		// ADMIN
+		if ( is_admin() ) {
+			?><p class="block-preview-placeholder">Project Links</p><?php
+			return;
+		}
+
+		if ( !have_rows('project_links', get_post() ) ) return;
+
+		?><section class="project-links">
+
+			<ul class="menu">
+			<?php while ( have_rows('project_links', get_post() ) ) { the_row();
+
+				$link = get_sub_field('url');
+				$icon = get_sub_field('icon');
+
+				$icon_map = [
+					'web'        => 'fas fa-globe',
+					'email'      => 'far fa-envelope',
+					'twitter'    => 'fab fa-twitter',
+					'github'     => 'fab fa-github',
+					'instagram'  => 'fab fa-instagram',
+					'feed'       => 'fab fa-rss',
+					'deviantart' => 'fab fa-deviantart',
+				];
+
+				if ( isset($icon_map[$icon]) ) {
+					$icon_code = $icon_map[$icon]; 
+				}
+
+				?>
+
+				<li class="menu-item <?=$icon?>">
+
+					<a href="<?=$link['url']?>" target="<?=$link['target']?>" title="<?=$link['title']?>">
+						<span class="menu-item-icon"><i class="<?=$icon_code?>"></i></span>
+						<span class="menu-item-title"><?=$link['title']?></span>
+					</a>
+
+				</li>
+
+			<?php } ?>
+			</ul>
 
 		</section><?php
 

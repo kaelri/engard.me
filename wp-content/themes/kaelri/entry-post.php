@@ -1,17 +1,18 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('entry'); ?>>
 
 	<!-- HEADER -->
-	<?php if ( get_post_format() != 'image' ) { ?>
 	<header class="entry-header">
 
 		<!-- TITLE -->
+		<?php if ( get_post_format() != 'image' ) { ?>
 		<h1 class="entry-title"><a href="<?=get_the_permalink()?>"><?php the_title(); ?></a></h1>
+		<?php } ?>
 
 		<!-- META -->
 		<section class="entry-meta">
 
 			<!-- DATE -->
-			<time class="entry-date" pubdate><?php the_time( get_option( 'date_format' ) ); ?></time>
+			<time class="entry-date" pubdate><a href="<?=get_the_permalink()?>"><?php the_time( get_option( 'date_format' ) ); ?></a></time>
 
 			<!-- TAGS -->
 			<?php if ( has_tag() ) { ?><span class="entry-tags"><?php the_tags(); ?></span><?php } ?>
@@ -19,13 +20,6 @@
 		</section>
 
 	</header>
-	<?php } ?>
-
-	<?php if ( get_post_format() == 'image' ) { ?>
-	<header class="entry-header-min">
-		<a href="<?=get_the_permalink()?>"><time class="entry-date" pubdate><?php the_time( get_option( 'date_format' ) ); ?></time></a>
-	</header>
-	<?php } ?>
 
 	<!-- BODY -->
 	<section class="entry-content">
