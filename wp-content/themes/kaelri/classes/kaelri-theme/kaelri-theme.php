@@ -177,7 +177,8 @@ class kaelriTheme {
 		}
 
 		if ( is_author() ) {
-			return get_the_author_link();
+			$name = get_the_author_link();
+			return sprintf( '<i class="fas fa-user"></i>&nbsp;%s', $name );
 		}
 
 		if ( is_404() ) {
