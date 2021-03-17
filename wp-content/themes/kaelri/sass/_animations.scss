@@ -1,0 +1,61 @@
+// ANIMATIONS
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes shiftInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-.5em);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes shiftInTop {
+	0% {
+		opacity: 0;
+		transform: translateY(.5em);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.main-container {
+	animation: fadeIn .5s ease-out both;
+}
+
+.header-photo {
+	animation: shiftInLeft .5s ease-out both;
+}
+
+.header-title {
+	animation: fadeIn .5s ease-out both;
+}
+
+.header-description {
+	animation: shiftInTop .5s ease-out 100ms both;
+}
+
+.header-contact {
+	.menu-item {
+		animation: shiftInTop .5s ease-out both;
+		@for $i from 1 through 10 {
+			&:nth-child( #{$i} ) { animation-delay: 150ms + ( 50ms * $i ); }
+		}
+	}
+}
+
+.header-menu {
+	animation: shiftInTop .5s ease-out 300ms both;
+}
