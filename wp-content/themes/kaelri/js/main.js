@@ -6,7 +6,7 @@ jQuery('.post_format-post-format-image, .type-project').each(function(){
 
 		var caption = jQuery(this).find('figcaption').html();
 
-		jQuery(this).children('a').attr( 'data-lightbox', id ).attr( 'data-title', caption );
+		jQuery(this).find('img').closest('a').attr( 'data-lightbox', id ).attr( 'data-title', caption );
 		
 	});
 
