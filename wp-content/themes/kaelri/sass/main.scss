@@ -119,6 +119,23 @@ blockquote {
 	padding-left: 2em;
 }
 
+.format-quote {
+
+	.wp-block-quote {
+		> p {
+			font-size: 1.75em;
+			font-weight: 300;
+			line-height: 1.5;
+		}
+		> cite {
+			font-size: smaller;
+			font-style: normal;
+			color: var(--text-dark-gray);
+		}
+	}
+
+}
+
 // SITE
 
 .site-container {

@@ -47,7 +47,7 @@ class kaelriTheme {
 
 		add_theme_support( 'post-thumbnails' );
 
-		add_theme_support( 'post-formats', ['image'] );
+		add_theme_support( 'post-formats', [ 'image', 'quote' ] );
 
 	}
 

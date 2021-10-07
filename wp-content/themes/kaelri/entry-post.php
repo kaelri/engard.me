@@ -4,7 +4,7 @@
 	<header class="entry-header">
 
 		<!-- TITLE -->
-		<?php if ( get_post_format() != 'image' ) { ?>
+		<?php if ( !in_array( get_post_format(), [ 'image', 'quote' ] ) ) { ?>
 		<h1 class="entry-title"><a href="<?=get_the_permalink()?>"><?php the_title(); ?></a></h1>
 		<?php } ?>
 
