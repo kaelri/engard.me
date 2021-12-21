@@ -243,6 +243,10 @@ blockquote {
 			--link-color:       #5cb85c;
 			--link-color-hover: #{ lighten( #5cb85c, 10% )};
 		}
+		&.coffee {
+			--link-color:       sienna;
+			--link-color-hover: #{ lighten( sienna, 10% )};
+		}
 		&.feed      {
 			--link-color:       #f0ad4e;
 			--link-color-hover: #{ lighten( #f0ad4e, 10% )};
