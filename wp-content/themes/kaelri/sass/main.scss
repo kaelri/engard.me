@@ -227,15 +227,15 @@ blockquote {
 
 	.menu-item {
 		&:not(:first-child) { padding-left: 1em; }
-		&.email     {
+		&.email {
 			--link-color:       #d9534f;
 			--link-color-hover: #{ lighten( #d9534f, 10% )};
 		}
-		&.twitter   {
+		&.twitter {
 			--link-color:       #5bc0de;
 			--link-color-hover: #{ lighten( #5bc0de, 10% )};
 		}
-		&.github    {
+		&.github {
 			--link-color:       mediumpurple;
 			--link-color-hover: #{ lighten( mediumpurple, 10% )};
 		}
@@ -247,9 +247,13 @@ blockquote {
 			--link-color:       sienna;
 			--link-color-hover: #{ lighten( sienna, 10% )};
 		}
-		&.feed      {
+		&.feed {
 			--link-color:       #f0ad4e;
 			--link-color-hover: #{ lighten( #f0ad4e, 10% )};
+		}
+		&.mastodon {
+			--link-color:       rgb(48, 136, 212);
+			--link-color-hover: #{ lighten( rgb(48, 136, 212), 10% )};
 		}
 
 		a {
