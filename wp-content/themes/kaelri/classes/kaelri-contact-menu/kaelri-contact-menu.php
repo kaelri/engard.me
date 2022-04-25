@@ -30,7 +30,8 @@ class kaelriContactMenu extends Walker_Nav_Menu {
 			'blog'      => 'fas fa-book-open',
 			'uses'      => 'fas fa-tools',
 			'instagram' => 'fab fa-instagram',
-			'coffee'    => 'fas fa-coffee'
+			'coffee'    => 'fas fa-coffee',
+			'mastodon'  => 'fab fa-mastodon'
 		];
 
 		foreach ($icon_map as $icon_id => $font_awesome_id) {
