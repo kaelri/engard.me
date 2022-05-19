@@ -23,8 +23,6 @@ spl_autoload_register(function ($class_name) {
 kaelriCore::setup( __FILE__, [
 	'kaelriLibraries',
 	'kaelriMedia',
-	'kaelriBlocks',
 	'kaelriProject',
 	'kaelriTags',
-	// 'Portal',
 ]);
