@@ -41,3 +41,8 @@
 # Unignore site theme and plugins.
 !/wp-content/plugins/kaelri/
 !/wp-content/themes/kaelri/
+
+# .gitignore_global
+node_modules
+mix-manifest.json
+package-lock.json
