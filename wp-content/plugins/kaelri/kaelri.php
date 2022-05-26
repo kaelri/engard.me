@@ -25,4 +25,5 @@ kaelriCore::setup( __FILE__, [
 	'kaelriMedia',
 	'kaelriProject',
 	'kaelriTags',
+	'kaelriFeeds',
 ]);
