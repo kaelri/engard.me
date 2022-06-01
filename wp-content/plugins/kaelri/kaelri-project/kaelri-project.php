@@ -26,7 +26,7 @@ class kaelriProject {
 			'show_in_rest'        => true,
 			'hierarchical'        => false,
 			'public'              => true,
-			'has_archive'         => true,
+			'has_archive'         => 'projects',
 			'show_in_menu'        => true,
 			'menu_position'       => 20,
 			'menu_icon'           => 'dashicons-format-image',
