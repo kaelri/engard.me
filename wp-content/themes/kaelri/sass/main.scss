@@ -551,13 +551,20 @@ blockquote {
 
 .footer {
 	color: var(--text-dark-gray);
+	--link-color: var(--text-dark-gray);
 	font-size: smaller;
 	@include range(mobile) {
 		padding: 0 1rem 1rem;
 	}
 	@include range(desktop) {
 		padding: 0 3rem 3rem;
+		max-width: 40rem;
 	}
+}
+
+.footer-inner {
+	display: flex;
+	justify-content: space-between;
 }
 
 // ANIMATIONS
