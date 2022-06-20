@@ -407,9 +407,16 @@ blockquote {
 	figcaption {
 		text-align: right;
 		margin-top: 0;
-		font-size: smaller;
+		font-size: (12/18) + em; 
 		color: var(--text-dark-gray);
 	}
+
+	.post_format-post-format-image &:first-of-type {
+		img {
+			width: 100%;
+		}
+	}
+
 }
 
 // PREVIEW

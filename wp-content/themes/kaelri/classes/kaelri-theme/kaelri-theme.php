@@ -203,6 +203,7 @@ class kaelriTheme {
 			'design'  => 'fas fa-fw fa-paint-brush',
 			'photos'  => 'fas fa-fw fa-camera',
 			'likes'   => 'fas fa-fw fa-heart',
+			'myst'    => 'fas fa-fw fa-book-open',
 			'writing' => 'fas fa-fw fa-pen-fancy',
 		];
 
