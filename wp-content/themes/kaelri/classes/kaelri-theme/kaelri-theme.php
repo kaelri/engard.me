@@ -73,15 +73,24 @@ class kaelriTheme {
 
 	public static function load_main_css() {
 
-		$css_mod_time = filemtime(get_stylesheet_directory() . '/css/main.css');
-		wp_enqueue_style ( 'main', get_stylesheet_directory_uri() . '/css/main.css', false, $css_mod_time );
+		wp_enqueue_style (
+			'theme',
+			get_stylesheet_directory_uri() . '/css/main.css',
+			false,
+			filemtime(get_stylesheet_directory() . '/css/main.css')
+		);
 
 	}
 
 	public static function load_main_js() {
 
-		$js_mod_time = filemtime(get_stylesheet_directory() . '/js/main.js');
-		wp_enqueue_script ( 'main', get_stylesheet_directory_uri() . '/js/main.js', ['jquery'], $js_mod_time, true );
+		wp_enqueue_script (
+			'theme',
+			get_stylesheet_directory_uri() . '/js/main.min.js',
+			[],
+			filemtime(get_stylesheet_directory() . '/js/main.min.js'),
+			true
+		);
 
 	}
 

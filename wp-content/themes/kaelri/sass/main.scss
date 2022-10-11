@@ -400,6 +400,14 @@ blockquote {
 	margin-left: 0;
 	margin-right: 0;
 
+	figure {
+		@include range(mobile) {
+			display: block;
+			margin-left:  -1rem;
+			margin-right: -1rem;
+		}
+	}
+
 	img {
 		display: block;
 	}

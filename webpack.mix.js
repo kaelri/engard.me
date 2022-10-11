@@ -11,4 +11,5 @@ mix
       outputStyle: 'compressed',
   }
 })
+.combine([ themePath + 'js/main.js'  ], themePath + 'js/main.min.js'  )
 .disableNotifications();

@@ -23,12 +23,11 @@ class kaelriLibraries {
 
 	public static function enqueue_scripts() {
 
-		wp_enqueue_script ( 'jquery' );
-		
+		// if ( !is_admin() ) wp_deregister_script( 'jquery' );
+
 		wp_enqueue_script ( 'font-awesome-5', '//use.fontawesome.com/releases/v5.15.4/js/all.js' );
 
-		wp_enqueue_style  ( 'lightbox', self::$url . 'lightbox/css/lightbox.css' );
-		wp_enqueue_script ( 'lightbox', self::$url . 'lightbox/js/lightbox.js', null, null, true );
+		wp_enqueue_script ( 'fslightbox', self::$url . 'fslightbox-basic-3.3.1/fslightbox.js', null, null, true );
 
 		wp_enqueue_style  ( 'prism', self::$url . 'prism/prism.css' );
 		wp_enqueue_script ( 'prism', self::$url . 'prism/prism.js', null, null, true );

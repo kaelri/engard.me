@@ -1,13 +1,22 @@
-jQuery('.post_format-post-format-image, .type-project').each(function(){
+document.addEventListener('DOMContentLoaded', () => {
 
-	var id = jQuery(this).attr('id');
+	document.querySelectorAll('.post_format-post-format-image, .type-project').forEach( (post) => {
 
-	jQuery(this).find('.wp-block-image').each(function(){
+		const lightboxID = post.id;
 
-		var caption = jQuery(this).find('figcaption').html();
+		post.querySelectorAll('.wp-block-image').forEach( (postImage) => {
 
-		jQuery(this).find('img').closest('a').attr( 'data-lightbox', id ).attr( 'data-title', caption );
-		
+			const postCaption     = postImage.querySelector('figcaption');
+			const lightboxCaption = postCaption ? postCaption.innerHTML : '';
+
+			const link = postImage.querySelector('img').closest('a');
+			link.setAttribute( 'data-fslightbox', lightboxID      );
+			link.setAttribute( 'data-caption',    lightboxCaption );
+	
+		});
+
 	});
+
+	refreshFsLightbox();
 
 });

@@ -10,7 +10,7 @@
 	},
 	"license": "All rights reserved.",
 	"scripts": {
-		"build": "npx mix",
-		"watch": "npx mix watch"
+		"build": "npx mix --production",
+		"watch": "npx mix --production -- --watch"
 	}
 }
