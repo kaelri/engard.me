@@ -29,9 +29,10 @@ class kaelriCore {
 		self::$url  = plugin_dir_url  ( __FILE__ );
 
 		// FIELDS
-		add_action( 'init',                   [ __CLASS__, 'set_acf_options_page'   ], 0 );
-		add_filter( 'acf/settings/load_json', [ __CLASS__, 'set_acf_json_load_path' ]    );
-		add_filter( 'acf/settings/save_json', [ __CLASS__, 'set_acf_json_save_path' ]    );
+		add_action( 'init',                   [ __CLASS__, 'set_acf_options_page'      ], 0     );
+		add_filter( 'acf/settings/load_json', [ __CLASS__, 'set_acf_json_load_path'    ]        );
+		add_filter( 'acf/settings/save_json', [ __CLASS__, 'set_acf_json_save_path'    ]        );
+		add_filter( 'block_categories',       [ __CLASS__, 'register_block_categories' ], 10, 2 );
 
 		// MODULES
 		if ( !empty($modules) ) { foreach ( $modules as $module ) {
@@ -137,6 +138,17 @@ class kaelriCore {
 				break;
 
 		}
+
+	}
+
+	public static function register_block_categories( $categories, $post ) {
+
+		$categories[] = [
+			'slug'  => 'kaelri',
+			'title' => get_bloginfo( 'name' ),
+		];
+
+		return $categories;
 
 	}
 

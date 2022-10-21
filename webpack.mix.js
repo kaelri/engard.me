@@ -11,5 +11,10 @@ mix
       outputStyle: 'compressed',
   }
 })
+.sass( themePath + 'sass/admin.scss', themePath + 'css', {
+  sassOptions: {
+      outputStyle: 'compressed',
+  }
+})
 .combine([ themePath + 'js/main.js'  ], themePath + 'js/main.min.js'  )
 .disableNotifications();

@@ -13,22 +13,23 @@ class kaelriTheme {
 		self::$url  = plugin_dir_url  ( __FILE__ );
 
 		// THEME CAPABILITIES
-		add_action( 'after_setup_theme',     [ __CLASS__, 'add_theme_supports'          ]     );
-		add_action( 'after_setup_theme',     [ __CLASS__, 'register_menus'              ]     );
+		add_action( 'after_setup_theme',           [ __CLASS__, 'add_theme_supports'          ]     );
+		add_action( 'after_setup_theme',           [ __CLASS__, 'register_menus'              ]     );
 
 		// CSS & JS
-		add_action( 'wp_enqueue_scripts',    [ __CLASS__, 'load_fonts'                  ]     );
-		add_action( 'wp_enqueue_scripts',    [ __CLASS__, 'load_main_css'               ]     );
-		add_action( 'wp_enqueue_scripts',    [ __CLASS__, 'load_main_js'                ]     );
+		add_action( 'wp_enqueue_scripts',          [ __CLASS__, 'load_fonts'                  ]     );
+		add_action( 'wp_enqueue_scripts',          [ __CLASS__, 'load_main_css'               ]     );
+		add_action( 'wp_enqueue_scripts',          [ __CLASS__, 'load_main_js'                ]     );
+		add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'enqueue_admin_scripts'       ]     );
 
 		// CONTENT CUSTOMIZATION & FILTERS
-		add_filter( 'body_class',            [ __CLASS__, 'filter_body_classes'         ]     );
-		add_filter( 'wp_title',              [ __CLASS__, 'filter_wp_title'             ], 20 );
-		add_filter( 'the_title',             [ __CLASS__, 'filter_the_title'            ]     );
-		add_filter( 'excerpt_length',        [ __CLASS__, 'filter_excerpt_length'       ]     );
-		add_filter( 'excerpt_more',          [ __CLASS__, 'filter_excerpt_readmore'     ]     );
-		add_filter( 'the_content_more_link', [ __CLASS__, 'filter_content_readmore'     ]     );
-		add_filter( 'pre_get_posts',         [ __CLASS__, 'add_projects_to_tag_archive' ]     );
+		add_filter( 'body_class',                  [ __CLASS__, 'filter_body_classes'         ]     );
+		add_filter( 'wp_title',                    [ __CLASS__, 'filter_wp_title'             ], 20 );
+		add_filter( 'the_title',                   [ __CLASS__, 'filter_the_title'            ]     );
+		add_filter( 'excerpt_length',              [ __CLASS__, 'filter_excerpt_length'       ]     );
+		add_filter( 'excerpt_more',                [ __CLASS__, 'filter_excerpt_readmore'     ]     );
+		add_filter( 'the_content_more_link',       [ __CLASS__, 'filter_content_readmore'     ]     );
+		add_filter( 'pre_get_posts',               [ __CLASS__, 'add_projects_to_tag_archive' ]     );
 
 		// Show Portal plugin’s loading spinner.
 		if ( class_exists('Portal') ) Portal::enable_spinner();
@@ -90,6 +91,17 @@ class kaelriTheme {
 			[],
 			filemtime(get_stylesheet_directory() . '/js/main.min.js'),
 			true
+		);
+
+	}
+
+	public static function enqueue_admin_scripts() {
+
+		wp_enqueue_style(
+			'kaelri-admin-block-editor-styles',
+			get_stylesheet_directory_uri() . '/css/admin.css',
+			[],
+			filemtime( get_stylesheet_directory() . '/css/admin.css' )
 		);
 
 	}

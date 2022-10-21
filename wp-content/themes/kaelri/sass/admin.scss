@@ -1,0 +1,92 @@
+// LIBRARIES
+@import 'lib/helpers';
+
+// RANGES
+@import 'lib/range';
+
+$theme-ranges: (
+	mobile:  ( max: 767 ),
+	desktop: ( min: 768 ),
+);
+
+$ranges: map-merge($ranges, $theme-ranges);
+
+// VARIABLES
+:root {
+	@include range(mobile) {
+		--content-padding: .5em;
+	}
+	@include range(desktop) {
+		--content-padding: 1em;
+	}
+}
+
+// TEMPLATES
+@mixin block-container( $title: '', $has-inner-content: true ) {
+	padding: var(--content-padding);
+	border: 2px dashed #999;
+	&::before {
+		@include block-label( $has-inner-content );
+		content: $title;
+	}
+}
+
+@mixin block-label( $has-inner-content: true ) {
+	display: block;
+	font-size: 12px;
+	line-height: 1;
+	color: #888;
+	text-transform: uppercase;
+	@if ( $has-inner-content ) {
+		padding-bottom: .5em;
+	}
+}
+
+// STYLES
+.editor-styles-wrapper {
+	&,
+	* {
+
+		font-family: var(--primary-font);
+
+		p, li, th, td, dt, dd {
+			line-height: var(--content-line-height);
+		}
+
+	}
+}
+
+p.is-style-subtitle {
+	font-weight: bold;
+}
+
+p.is-style-small {
+	font-size: smaller;
+}
+
+ul.no-bullets,
+li.no-bullets {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.block-section {
+	@include block-container( 'Section', true );
+}
+
+.block-timed-content {
+	@include block-container;
+}
+
+.block-timed-content-label {
+	@include block-label( true );
+}
+
+.block-test {
+	@include block-container( 'Test Block', false );
+}
+
+.project-links {
+	@include block-container;
+}
