@@ -7,7 +7,7 @@
 					</section>
 
 					<section class="footer-wordpress">
-						<a href="<?=admin_url()?>"><span class="dashicons dashicons-wordpress"></span></a>
+						<?php /* <a href="<?=admin_url()?>"><span class="dashicons dashicons-wordpress"></span></a> */ ?>
 					</section>
 
 				</div>
