@@ -14,7 +14,7 @@ $post = $args['post'];
 
 		<!-- TITLE -->
 		<?php if ( !in_array( get_post_format( $post->ID ), [ 'image', 'quote' ] ) ) { ?>
-		<h1 class="entry-title"><a href="<?=get_the_permalink( $post->ID )?>"><?php get_the_title( $post->ID ); ?></a></h1>
+		<h1 class="entry-title"><a href="<?=get_the_permalink( $post->ID )?>"><?=get_the_title( $post->ID )?></a></h1>
 		<?php } ?>
 
 		<!-- META -->
