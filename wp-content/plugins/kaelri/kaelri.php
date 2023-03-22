@@ -26,4 +26,5 @@ kaelriCore::setup( __FILE__, [
 	'kaelriProject',
 	'kaelriTags',
 	'kaelriFeeds',
+	'kaelriActivity',
 ]);
