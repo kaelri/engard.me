@@ -1,0 +1,6 @@
+name: engard
+recipe: wordpress
+config:
+  webroot: .
+  php: '8.2'
+  via: nginx
