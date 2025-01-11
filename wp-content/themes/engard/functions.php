@@ -158,7 +158,8 @@ class Core {
 
 		wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap', [], null );
 
-		wp_register_script ( 'font-awesome-5', '//use.fontawesome.com/releases/v5.15.4/js/all.js' );
+		// FONT AWESOME
+		wp_register_style ( 'font-awesome-pro',  get_common_url('lib/font-awesome-pro-6.7.1/css/all.min.css') );
 
 		wp_register_script ( 'fslightbox', get_common_url('lib/fslightbox-basic-3.3.1/fslightbox.js'), null, null, true );
 
@@ -168,21 +169,21 @@ class Core {
 		wp_register_style (
 			__NAMESPACE__ . '-theme',
 			geT_common_url('css/main.css'),
-			[ 'google-fonts', 'prism', 'dashicons' ],
+			[ 'google-fonts', 'font-awesome-pro', 'prism', 'dashicons' ],
 			filemtime( get_common_path('css/main.css') )
 		);
 
 		wp_register_style (
 			__NAMESPACE__ . '-admin',
 			geT_common_url('css/admin.css'),
-			[ 'google-fonts', 'prism', 'dashicons' ],
+			[ 'google-fonts', 'font-awesome-pro', 'prism', 'dashicons' ],
 			filemtime( get_common_path('css/admin.css') )
 		);
 
 		wp_register_script (
 			__NAMESPACE__ . '-theme',
 			geT_common_url('js/main.min.js'),
-			[ 'font-awesome-5', 'fslightbox', 'prism' ],
+			[ 'fslightbox', 'prism' ],
 			filemtime( get_common_path('js/main.min.js') ),
 			true
 		);

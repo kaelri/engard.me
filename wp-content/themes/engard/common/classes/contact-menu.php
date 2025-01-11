@@ -33,7 +33,8 @@ class contactMenu extends \Walker_Nav_Menu {
 			'uses'      => 'fas fa-tools',
 			'instagram' => 'fab fa-instagram',
 			'coffee'    => 'fas fa-coffee',
-			'mastodon'  => 'fab fa-mastodon'
+			'mastodon'  => 'fab fa-mastodon',
+			'bluesky'   => 'fab fa-bluesky'
 		];
 
 		foreach ($icon_map as $icon_id => $font_awesome_id) {
