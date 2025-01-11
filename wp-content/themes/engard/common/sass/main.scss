@@ -255,6 +255,10 @@ blockquote {
 			--link-color:       rgb(48, 136, 212);
 			--link-color-hover: #{ lighten( rgb(48, 136, 212), 10% )};
 		}
+		&.bluesky {
+			--link-color:       #1185fe;
+			--link-color-hover: #{ lighten( #1185fe, 10% )};
+		}
 
 		a {
 			display: block;
