@@ -1,3 +1,0 @@
-<?php
-
-kaelriTheme::setup();

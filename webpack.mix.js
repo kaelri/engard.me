@@ -1,6 +1,6 @@
 let mix = require('laravel-mix');
 
-let themePath = 'wp-content/themes/kaelri/';
+let themePath = 'wp-content/themes/engard/common/';
 
 mix
 .options({
@@ -16,5 +16,5 @@ mix
       outputStyle: 'compressed',
   }
 })
-.combine([ themePath + 'js/main.js'  ], themePath + 'js/main.min.js'  )
+.combine([ themePath + 'js/main.js'  ], themePath + 'js/main.min.js' )
 .disableNotifications();

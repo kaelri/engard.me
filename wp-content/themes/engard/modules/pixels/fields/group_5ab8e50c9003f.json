@@ -1,0 +1,303 @@
+{
+    "key": "group_5ab8e50c9003f",
+    "title": "Pixels",
+    "fields": [
+        {
+            "key": "field_64dd0fbcfd038",
+            "label": "Google Tag Manager",
+            "name": "gtm_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the GTM container ID for this site.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "GTM-######",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5ab8e521f248b",
+            "label": "Header Tags",
+            "name": "header_tags",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "These HTML tags will appear in the <code>&lt;head&gt;<\/code> section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5ab8e549f248c",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Header Tag",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_5ab8e549f248c",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_5ab8e521f248b"
+                },
+                {
+                    "key": "field_5ab8e556f248d",
+                    "label": "HTML",
+                    "name": "html",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_5ab8e521f248b"
+                },
+                {
+                    "key": "field_5b364bb5e4ed9",
+                    "label": "Enabled",
+                    "name": "enabled",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "10",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_5ab8e521f248b"
+                }
+            ]
+        },
+        {
+            "key": "field_5ab8e57cf248e",
+            "label": "Body Tags",
+            "name": "body_tags",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "These HTML tags will appear immediately after the opening <code>&lt;body&gt;<\/code> tag.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5ab8e57cf248f",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Body Tag",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_5ab8e57cf248f",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_5ab8e57cf248e"
+                },
+                {
+                    "key": "field_5ab8e57cf2490",
+                    "label": "HTML",
+                    "name": "html",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_5ab8e57cf248e"
+                },
+                {
+                    "key": "field_5b364be6e4edb",
+                    "label": "Enabled",
+                    "name": "enabled",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "10",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_5ab8e57cf248e"
+                }
+            ]
+        },
+        {
+            "key": "field_5ab8e58ff2491",
+            "label": "Footer Tags",
+            "name": "footer_tags",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "These HTML tags will appear immediately before the closing <code>&lt;\/body&gt;<\/code> tag.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5ab8e58ff2492",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Footer Tag",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_5ab8e58ff2492",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_5ab8e58ff2491"
+                },
+                {
+                    "key": "field_5ab8e58ff2493",
+                    "label": "HTML",
+                    "name": "html",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_5ab8e58ff2491"
+                },
+                {
+                    "key": "field_5b364c04e4edc",
+                    "label": "Enabled",
+                    "name": "enabled",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "10",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_5ab8e58ff2491"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "engard-pixels"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Site options.",
+    "show_in_rest": 0,
+    "modified": 1723663648
+}

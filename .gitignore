@@ -40,8 +40,7 @@ docs
 /xmlrpc.php
 
 # Unignore site theme and plugins.
-!/wp-content/plugins/kaelri/
-!/wp-content/themes/kaelri/
+!/wp-content/themes/engard/
 
 # .gitignore_global
 node_modules

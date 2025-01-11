@@ -1,12 +1,14 @@
 {
-	"name": "kaelri.com",
+	"name": "engard.me",
 	"version": "1.0.0",
-	"author": "kaelri",
-	"description": "Custom WordPress theme & plugin for [Kaelri.com](https://www.kaelri.com).",
+	"author": "michael@engard.me",
+	"description": "Custom WordPress theme & plugin for [Engard.me](https://www.engard.me).",
 	"devDependencies": {
-		"laravel-mix": "^6.0.13",
-		"sass": "^1.32.8",
-		"sass-loader": "^10.1.1"
+		"laravel-mix": "^6.0.43",
+		"replace-in-files": "^3.0.0",
+		"sass-loader": "^12.6.0",
+		"sass": "^1.52.1",
+		"yaml": "^2.1.3"
 	},
 	"license": "All rights reserved.",
 	"scripts": {
