@@ -11,7 +11,9 @@ namespace engard;
 					</section>
 
 					<section class="footer-wordpress">
-						<?php /* <a href="<?=admin_url()?>"><span class="dashicons dashicons-wordpress"></span></a> */ ?>
+						<?php if ( isset($_COOKIE['engard_admin']) && $_COOKIE['engard_admin'] === 'true' ) { ?>
+						<a href="<?=admin_url()?>"><span class="dashicons dashicons-wordpress"></span></a>
+						<?php } ?>
 					</section>
 
 				</div>
