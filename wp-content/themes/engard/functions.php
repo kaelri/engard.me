@@ -13,10 +13,6 @@ class Core {
 		// self::setup_gravity_forms();
 		self::setup_modules();
 
-		// DISABLE AUTOMATIC UPDATES
-		add_filter( 'auto_update_plugin', '__return_false' );
-		add_filter( 'auto_update_theme', '__return_false' );
-
 		// THEME CAPABILITIES
 		add_action( 'after_setup_theme',           [ __CLASS__, 'set_theme_supports' ] );
 		add_action( 'after_setup_theme',           [ __CLASS__, 'register_menus' ] );
@@ -40,6 +36,12 @@ class Core {
 		add_filter( 'excerpt_more',                [ __CLASS__, 'filter_excerpt_readmore' ] );
 		add_filter( 'the_content_more_link',       [ __CLASS__, 'filter_content_readmore' ] );
 		add_filter( 'oembed_response_data',        [ __CLASS__, 'filter_oembed_response_data' ] );
+
+		// DISABLE AUTOMATIC UPDATES
+		add_filter( 'auto_update_plugin',          '__return_false' );
+		add_filter( 'auto_update_theme',           '__return_false' );
+		add_filter( 'themes_auto_update_enabled',  '__return_false' );
+		add_filter( 'plugins_auto_update_enabled', '__return_false' );
 
 	}
 
